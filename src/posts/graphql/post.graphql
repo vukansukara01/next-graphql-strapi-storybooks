@@ -1,0 +1,39 @@
+query Post($id: ID) {
+    post(id: $id) {
+        data {
+            id
+            attributes {
+                ...PostsItems
+                productImage {
+                    data {
+                        attributes {
+                            formats
+                        }
+                    }
+                }
+                users_permissions_user {
+                    data {
+                        attributes {
+                            name
+                        }
+                    }
+                }
+                comments {
+                    data {
+                        attributes {
+                            text
+                            dateAdded
+                            users_permissions_user {
+                                data {
+                                    attributes {
+                                        name
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

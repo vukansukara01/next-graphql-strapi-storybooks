@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    input {
+        border-radius: 8px;
+        border: #00ff00ff 1px solid;
+        height: 40px;
+        padding: 5px 0 5px 10px;
+        background: white;
+        color: black;
+
+        &:focus {
+            outline: none;
+            border: #4acc4a 1px solid;
+
+        }
+    }
+
+}

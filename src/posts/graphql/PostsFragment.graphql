@@ -1,0 +1,4 @@
+fragment PostsItems on Post {
+    title
+    body
+}

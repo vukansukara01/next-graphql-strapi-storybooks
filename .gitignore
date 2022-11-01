@@ -6,7 +6,7 @@
 .pnp.js
 
 # testing
-/coverage
+/q-task-next/coverage
 
 # next.js
 /.next/
@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env.local
 
 # vercel
 .vercel

@@ -1,0 +1,17 @@
+query Posts {
+    posts {
+        data {
+            id
+            attributes {
+                ...PostsItems,
+                users_permissions_user {
+                    data {
+                        attributes {
+                            name
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
