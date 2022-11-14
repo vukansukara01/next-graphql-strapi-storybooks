@@ -94,6 +94,43 @@ export type CommentRelationResponseCollection = {
   data: Array<CommentEntity>;
 };
 
+export type ComponentPostsPost = {
+  __typename?: 'ComponentPostsPost';
+  body?: Maybe<Scalars['String']>;
+  comments?: Maybe<CommentRelationResponseCollection>;
+  id: Scalars['ID'];
+  productImage?: Maybe<UploadFileEntityResponse>;
+  title?: Maybe<Scalars['String']>;
+  users_permissions_user?: Maybe<UsersPermissionsUserEntityResponse>;
+};
+
+
+export type ComponentPostsPostCommentsArgs = {
+  filters?: InputMaybe<CommentFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ComponentPostsPostFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentPostsPostFiltersInput>>>;
+  body?: InputMaybe<StringFilterInput>;
+  comments?: InputMaybe<CommentFiltersInput>;
+  not?: InputMaybe<ComponentPostsPostFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentPostsPostFiltersInput>>>;
+  title?: InputMaybe<StringFilterInput>;
+  users_permissions_user?: InputMaybe<UsersPermissionsUserFiltersInput>;
+};
+
+export type ComponentPostsPostInput = {
+  body?: InputMaybe<Scalars['String']>;
+  comments?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  id?: InputMaybe<Scalars['ID']>;
+  productImage?: InputMaybe<Scalars['ID']>;
+  title?: InputMaybe<Scalars['String']>;
+  users_permissions_user?: InputMaybe<Scalars['ID']>;
+};
+
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
@@ -148,7 +185,47 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = Comment | I18NLocale | Post | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Comment | ComponentPostsPost | Home | I18NLocale | Post | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+
+export type Home = {
+  __typename?: 'Home';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  post?: Maybe<Array<Maybe<ComponentPostsPost>>>;
+  posts?: Maybe<PostRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type HomePostArgs = {
+  filters?: InputMaybe<ComponentPostsPostFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type HomePostsArgs = {
+  filters?: InputMaybe<PostFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type HomeEntity = {
+  __typename?: 'HomeEntity';
+  attributes?: Maybe<Home>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type HomeEntityResponse = {
+  __typename?: 'HomeEntityResponse';
+  data?: Maybe<HomeEntity>;
+};
+
+export type HomeInput = {
+  post?: InputMaybe<Array<InputMaybe<ComponentPostsPostInput>>>;
+  posts?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+};
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -271,6 +348,7 @@ export type Mutation = {
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   deleteComment?: Maybe<CommentEntityResponse>;
+  deleteHome?: Maybe<HomeEntityResponse>;
   deletePost?: Maybe<PostEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
@@ -291,6 +369,7 @@ export type Mutation = {
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateComment?: Maybe<CommentEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
+  updateHome?: Maybe<HomeEntityResponse>;
   updatePost?: Maybe<PostEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
@@ -421,6 +500,11 @@ export type MutationUpdateFileInfoArgs = {
 };
 
 
+export type MutationUpdateHomeArgs = {
+  data: HomeInput;
+};
+
+
 export type MutationUpdatePostArgs = {
   data: PostInput;
   id: Scalars['ID'];
@@ -480,7 +564,6 @@ export type Post = {
   comments?: Maybe<CommentRelationResponseCollection>;
   createdAt?: Maybe<Scalars['DateTime']>;
   productImage?: Maybe<UploadFileEntityResponse>;
-  publishedAt?: Maybe<Scalars['DateTime']>;
   title: Scalars['String'];
   updatedAt?: Maybe<Scalars['DateTime']>;
   users_permissions_user?: Maybe<UsersPermissionsUserEntityResponse>;
@@ -519,7 +602,6 @@ export type PostFiltersInput = {
   id?: InputMaybe<IdFilterInput>;
   not?: InputMaybe<PostFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<PostFiltersInput>>>;
-  publishedAt?: InputMaybe<DateTimeFilterInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
   users_permissions_user?: InputMaybe<UsersPermissionsUserFiltersInput>;
@@ -529,9 +611,13 @@ export type PostInput = {
   body?: InputMaybe<Scalars['String']>;
   comments?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   productImage?: InputMaybe<Scalars['ID']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']>;
   title?: InputMaybe<Scalars['String']>;
   users_permissions_user?: InputMaybe<Scalars['ID']>;
+};
+
+export type PostRelationResponseCollection = {
+  __typename?: 'PostRelationResponseCollection';
+  data: Array<PostEntity>;
 };
 
 export enum PublicationState {
@@ -543,6 +629,7 @@ export type Query = {
   __typename?: 'Query';
   comment?: Maybe<CommentEntityResponse>;
   comments?: Maybe<CommentEntityResponseCollection>;
+  home?: Maybe<HomeEntityResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
@@ -572,6 +659,11 @@ export type QueryCommentsArgs = {
 };
 
 
+export type QueryHomeArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+
 export type QueryI18NLocaleArgs = {
   id?: InputMaybe<Scalars['ID']>;
 };
@@ -592,7 +684,6 @@ export type QueryPostArgs = {
 export type QueryPostsArgs = {
   filters?: InputMaybe<PostFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 

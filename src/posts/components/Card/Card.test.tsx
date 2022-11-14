@@ -1,23 +1,15 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Card } from './index';
 import '@testing-library/jest-dom';
-import { UserModel } from '../../model/UserModel';
 
 describe('Card', () => {
-    const user: UserModel = {
-        id: 1,
-        name: 'Emisija SAT',
-        username: '',
-        email: '',
-        phone: '',
-        website: '',
-    };
+
     test('card should be rendered', () => {
         const handleOpen = jest.fn();
 
         render(
             <Card
-                user={user}
+                user={'Emisija SAT'}
                 id={1}
                 title={'Novi audi a4'}
                 body={'Predstavljen 2023 u Mihnenu'}
@@ -35,7 +27,7 @@ describe('Card', () => {
 
         render(
             <Card
-                user={user}
+                user={'Emisija SAT'}
                 id={1}
                 title={'Novi audi a4'}
                 body={'Predstavljen 2023 u Mihnenu'}

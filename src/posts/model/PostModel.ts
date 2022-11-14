@@ -1,10 +1,9 @@
-import {UserModel} from "./UserModel";
 
 interface PostModel {
     id: string;
     title: string;
     body: string;
-    user: UserModel;
+    user: string;
     __typename: string;
     image?: string;
     imageWidth?: number;

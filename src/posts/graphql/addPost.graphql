@@ -1,0 +1,24 @@
+mutation createPost ($title: String! $body: String! ) {
+    createPost(
+        data: {
+            title: $title
+            body: $body
+            users_permissions_user: 2
+        }
+    ){
+        data{
+            id
+            attributes{
+                title
+                body
+                users_permissions_user{
+                    data{
+                        attributes{
+                            name
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

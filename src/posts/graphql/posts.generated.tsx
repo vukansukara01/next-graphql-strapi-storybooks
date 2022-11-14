@@ -1,7 +1,6 @@
 import type * as Types from '../../types';
 
 import { gql } from '@apollo/client';
-import { PostsItemsFragmentDoc } from './PostsFragment.generated';
 import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export type PostsQueryVariables = Types.Exact<{ [key: string]: never; }>;
@@ -16,7 +15,8 @@ export const PostsDocument = /*#__PURE__*/ gql`
     data {
       id
       attributes {
-        ...PostsItems
+        title
+        body
         users_permissions_user {
           data {
             attributes {
@@ -28,7 +28,7 @@ export const PostsDocument = /*#__PURE__*/ gql`
     }
   }
 }
-    ${PostsItemsFragmentDoc}`;
+    `;
 export function usePostsQuery(baseOptions?: Apollo.QueryHookOptions<PostsQuery, PostsQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<PostsQuery, PostsQueryVariables>(PostsDocument, options);

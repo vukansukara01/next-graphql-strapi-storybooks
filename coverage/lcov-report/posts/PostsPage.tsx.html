@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.7% </span>
+                <span class="strong">92.85% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>11/17</span>
+                <span class='fraction'>13/14</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/8</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/15</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -113,21 +113,7 @@
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,37 +124,25 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,50 +168,37 @@ import styles from './Posts.module.scss';
 import { Card } from './components/Card';
 import { useRouter } from 'next/router';
 import Search from '../shared/components/search/Search';
-import { PostModel } from './model/PostModel';
 import Spinner from '../shared/components/spinner/Spinner';
-import { usePostsQuery } from './graphql/posts.generated';
+import { useHomeQuery } from './graphql/home.generated';
 &nbsp;
 const PostsPage: FC = () =&gt; {
     const [searchTerm, setSearchTerm] = useState&lt;string&gt;('');
-    const [list, setList] = useState&lt;PostModel[]&gt;([]);
     const router = useRouter();
 &nbsp;
-    const { loading } = usePostsQuery({
-        onCompleted: <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt;  {
-<span class="cstat-no" title="statement not covered" >            data?.posts?.data.forEach(<span class="fstat-no" title="function not covered" >(i</span>tem) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >                setList(<span class="fstat-no" title="function not covered" >(c</span>urrent) =&gt; <span class="cstat-no" title="statement not covered" >[</span></span>
-                    ...current,
-                    {
-                        ...item?.attributes,
-                        id: item.id,
-                        user: {name: item?.attributes?.users_permissions_user?.data.attributes.name},
-                    } as PostModel,
-                ]);
-            });
-        },
-    });
+    const { loading, data } = useHomeQuery();
 &nbsp;
     const filteredList = useMemo(() =&gt; {
-        const filter = list.filter(<span class="fstat-no" title="function not covered" >(i</span>tem: PostModel) =&gt; <span class="cstat-no" title="statement not covered" >item?.user.name.toLowerCase().startsWith(searchTerm.toLowerCase())</span>
+        const filter = data?.home?.data?.attributes?.post?.filter((item) =&gt;
+            item?.users_permissions_user?.data?.attributes?.name
+                .toLowerCase()
+                .startsWith(searchTerm.toLowerCase())
         );
 &nbsp;
-        return filter?.map(<span class="fstat-no" title="function not covered" >(c</span>ard: PostModel) =&gt; {
+        const handleOpenPost = <span class="fstat-no" title="function not covered" >(i</span>d: number)=&gt;<span class="cstat-no" title="statement not covered" >router.push(`posts/${id}`);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >            return (</span>
+        return filter?.map((card) =&gt; {
+            return (
                 &lt;Card
-                    key={card.id}
+                    key={card.title}
                     body={card.body}
-                    id={1}
+                    id={+card.id}
                     title={card.title}
-                    handleOpenPost={<span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >                        router.push(`posts/${card.id}`);</span>
-                    }}
-                    user={card.user}
+                    handleOpenPost={handleOpenPost}
+                    user={card.users_permissions_user?.data?.attributes?.name}
                 /&gt;
             );
         });
-    }, [searchTerm, list]);
+    }, [searchTerm, data]);
 &nbsp;
     if (loading) {
         return &lt;Spinner /&gt;;
@@ -259,7 +220,7 @@ export default PostsPage;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-10-31T14:27:57.061Z
+                at 2022-11-01T14:50:12.422Z
             </div>
         <script src="../prettify.js"></script>
         <script>

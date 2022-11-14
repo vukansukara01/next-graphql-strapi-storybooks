@@ -1,7 +1,6 @@
-import {UserModel} from "./UserModel";
 
 interface CardModel {
-    user: UserModel;
+    user: string;
     id: number;
     title: string;
     body: string;

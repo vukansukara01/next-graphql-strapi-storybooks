@@ -1,0 +1,32 @@
+.container {
+    width: 500px;
+    height: 600px;
+    background: white;
+    border-radius: 10px;
+    color: #00ff00ff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        button {
+            color: #4acc4a;
+            border: 1px solid #00ff00ff;
+
+            &:hover {
+              border: 1px solid #00ff00ff;
+            }
+        }
+    }
+}

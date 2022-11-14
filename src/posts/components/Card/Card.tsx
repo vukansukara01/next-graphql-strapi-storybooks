@@ -13,7 +13,7 @@ const Card: FC<CardModel> = ({ user, id, title, body, handleOpenPost }) => {
                 <h3 className={styles.title}>{title}</h3>
                 <p className={styles.body}>{body.substring(0, 200)} ...</p>
             </div>
-            <p className={styles.userName}>{user.name}</p>
+            <p className={styles.userName}>{user}</p>
         </div>
     );
 };

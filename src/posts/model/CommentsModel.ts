@@ -1,7 +1,6 @@
-import {UserCommentsModel} from "./UserCommentsModel";
 
 interface CommentsModel {
-    user: UserCommentsModel;
+    user: string;
     dateAdded: string;
     text: string;
 }

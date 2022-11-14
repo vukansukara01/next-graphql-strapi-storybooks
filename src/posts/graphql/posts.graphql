@@ -3,7 +3,8 @@ query Posts {
         data {
             id
             attributes {
-                ...PostsItems,
+                title
+                body
                 users_permissions_user {
                     data {
                         attributes {

@@ -1,6 +1,40 @@
 .container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     margin-top: 20px;
+
+    nav{
+        display: flex;
+        width: 80%;
+        margin: auto;
+        justify-content: space-around;
+
+        button{
+          background: #4acc4a;
+
+            &:hover{
+                background: #276f27;
+            }
+        }
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .pagination{
+        button{
+            color: white;
+
+            &:hover{
+                background: #276f27;
+            }
+
+            &:focus{
+                background: #276f27;
+            }
+        }
+    }
 }

@@ -10,6 +10,7 @@ export default function Document() {
                     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap"
                     rel="stylesheet"
                 />
+                <title>Q Task next</title>
             </Head>
             <body>
                 <Main />

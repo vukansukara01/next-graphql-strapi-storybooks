@@ -23,11 +23,16 @@
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     },
     "clearMocks": true,
+    "resetMocks": true,
     "testEnvironment": "jsdom"
   },
   "dependencies": {
     "@apollo/client": "^3.7.0",
     "@babel/preset-typescript": "^7.18.6",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.10.9",
+    "@mui/material": "^5.10.12",
     "@storybook/preset-scss": "^1.0.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -35,6 +40,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "formik": "^2.2.9",
     "graphql": "^16.6.0",
     "next": "12.3.1",
     "prettier": "^2.7.1",
@@ -45,7 +51,8 @@
     "sass": "^1.55.0",
     "ts-jest": "^29.0.3",
     "type-graphql": "^1.1.1",
-    "webpack": "^5.74.0"
+    "webpack": "^5.74.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
